@@ -13,8 +13,17 @@ llm = ChatGroq(
 
 def analyze_page_with_groq(content):
     # Create a prompt that combines the context and the page content
-    prompt = f"You are an expert in web design and UX. Analyze the page content for e-commerce websites and suggest improvements. Also suggest chnges related to the 
-    Website traffic,  seo related things (semrush), page loading speed, Guest searching, Length of the websites, Mobile functionality vs desktop functionality.\n\nPage Content:\n{content}"
+    prompt = f"""
+                You are an expert in web design and UX. Analyze the page content for e-commerce websites and suggest improvements. 
+                Additionally, provide insights on:  
+                - Website traffic trends (organic vs. paid, bounce rate, user engagement)  
+                - SEO improvements (keyword analysis, backlinks, SEMrush insights)  
+                - Page loading speed optimization  
+                - Search functionality for guest users  
+                - Website length and readability  
+                - Mobile vs. desktop usability  
+
+            Page Content:{content}"""
     
     # Generate response from the model, wrap the prompt in a HumanMessage object
     response = llm.generate([[HumanMessage(content=prompt)]])
