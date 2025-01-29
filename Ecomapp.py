@@ -8,7 +8,7 @@ groq_api_key = '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'  # Rep
 llm = ChatGroq(
     temperature=0,
     groq_api_key=groq_api_key,
-    model_name="llama-3.1-70b-versatile"
+    model_name="llama-3.3-70b-versatile"
 )
 
 def analyze_page_with_groq(content):
