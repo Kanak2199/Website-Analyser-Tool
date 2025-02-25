@@ -1,10 +1,19 @@
+import os
 import streamlit as st
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_groq import ChatGroq
 from langchain.schema import HumanMessage
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Retrieve API key securely
+groq_api_key = os.getenv("GROQ_API_KEY")
+
 
 # Initialize the Groq API key and model
-groq_api_key = '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'  # Replace with your Groq API key
+groq_api_key = groq_api_key  # Replace with your Groq API key
 llm = ChatGroq(
     temperature=0,
     groq_api_key=groq_api_key,
